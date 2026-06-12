@@ -21,7 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        {% for s in students %}
+        {% for s in students_list %}
         <tr>
           <td>{{ s.addmission_number }}</td>
           <td>
@@ -43,9 +43,9 @@
           <td>{{ s.mobile_number }}</td>
           <td>
             <div class="action-icons">
-              <a href="{% url 'student_view' %}" class="view"><i class="bi bi-eye"></i></a>
-              <a href="{% url 'student_edit' %}" class="edit"><i class="bi bi-pencil"></i></a>
-              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+              <a href="{% url 'view_student' s.slug %}" class="view"><i class="bi bi-eye"></i></a>
+              <a href="{% url 'edit_student' s.slug %}" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="{% url 'delete_student' s.slug %}" class="delete"><i class="bi bi-trash"></i></a>
             </div>
           </td>
         </tr>

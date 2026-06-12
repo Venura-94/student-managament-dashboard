@@ -1,0 +1,22 @@
+{% extends 'Home/base.html' %}
+{% block title %}Delete Student{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Delete Student</h2>
+  <div class="breadcrumb-text">
+    <a href="{% url 'student_list' %}">Student</a> / <span class="current">Delete</span>
+  </div>
+</div>
+
+<div class="panel">
+  <p>Are you sure you want to delete <strong>{{ student.first_name }} {{ student.last_name }}</strong> ({{ student.student_id }})? This will also remove their guardian details. This action cannot be undone.</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="d-flex gap-3 mt-3">
+      <button type="submit" class="btn-primary-custom">Yes, Delete</button>
+      <a href="{% url 'student_list' %}" class="btn-outline-custom">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}
