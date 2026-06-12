@@ -64,7 +64,7 @@ def add_student(request):
         messages.success(request, 'Student added successfully!')
         return redirect('student_list')
 
-    # return render(request, 'students/add.html')
+    return render(request, 'students/add.html')
 
 def student_list(request):
     students = Student.objects.all()
