@@ -1,0 +1,139 @@
+{% extends 'Home/base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Welcome Admin!</h2>
+  <div class="breadcrumb-text"><a href="{% url 'dashboard_admin' %}">Dashboard</a></div>
+</div>
+
+<div class="row g-4 mb-4">
+  <div class="col-xl-3 col-sm-6">
+    <div class="stat-card bg-orange">
+      <div class="stat-icon"><i class="bi bi-mortarboard-fill"></i></div>
+      <div>
+        <p class="stat-value">5,005</p>
+        <p class="stat-label">Students</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6">
+    <div class="stat-card bg-blue">
+      <div class="stat-icon"><i class="bi bi-award-fill"></i></div>
+      <div>
+        <p class="stat-value">50+</p>
+        <p class="stat-label">Awards</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6">
+    <div class="stat-card bg-pink">
+      <div class="stat-icon"><i class="bi bi-building-fill"></i></div>
+      <div>
+        <p class="stat-value">30+</p>
+        <p class="stat-label highlight">Departments</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6">
+    <div class="stat-card bg-purple">
+      <div class="stat-icon"><i class="bi bi-wallet2"></i></div>
+      <div>
+        <p class="stat-value">$50,500</p>
+        <p class="stat-label">Revenue</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-xl-7">
+    <div class="panel h-100">
+      <div class="panel-head">
+        <h3 class="panel-title">Revenue</h3>
+        <select class="form-select form-select-sm w-auto">
+          <option>Today</option>
+          <option>This Week</option>
+          <option>This Month</option>
+        </select>
+      </div>
+      <canvas id="revenueChart" height="260"></canvas>
+    </div>
+  </div>
+  <div class="col-xl-5">
+    <div class="panel h-100">
+      <div class="panel-head">
+        <h3 class="panel-title">Number of Students</h3>
+        <select class="form-select form-select-sm w-auto">
+          <option>Today</option>
+          <option>This Week</option>
+          <option>This Month</option>
+        </select>
+      </div>
+      <canvas id="studentsChart" height="260"></canvas>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul'];
+
+  new Chart(document.getElementById('revenueChart'), {
+    type: 'line',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Income',
+          data: [45, 58, 75, 60, 50, 55, 65],
+          borderColor: '#3D5EE1',
+          backgroundColor: 'rgba(61,94,225,0.12)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: 0
+        },
+        {
+          label: 'Expense',
+          data: [35, 40, 48, 38, 42, 60, 50],
+          borderColor: '#FF9F43',
+          backgroundColor: 'rgba(255,159,67,0.12)',
+          fill: true,
+          tension: 0.4,
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom' } },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+
+  new Chart(document.getElementById('studentsChart'), {
+    type: 'bar',
+    data: {
+      labels: months,
+      datasets: [
+        {
+          label: 'Boys',
+          data: [1100, 1250, 1200, 950, 1050, 1150, 1000],
+          backgroundColor: '#3D5EE1',
+          borderRadius: 6
+        },
+        {
+          label: 'Girls',
+          data: [700, 850, 600, 500, 650, 700, 600],
+          backgroundColor: '#FFC542',
+          borderRadius: 6
+        }
+      ]
+    },
+    options: {
+      plugins: { legend: { position: 'bottom' } },
+      scales: { y: { beginAtZero: true } }
+    }
+  });
+</script>
+{% endblock %}

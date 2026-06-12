@@ -1,0 +1,47 @@
+{% extends 'Home/base.html' %}
+{% block title %}Time Table{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Time Table" %}
+
+<div class="panel">
+  <div class="panel-head">
+    <h3 class="panel-title">Class X - A</h3>
+    <select class="form-select form-select-sm w-auto">
+      <option>Class X - A</option>
+      <option>Class X - B</option>
+      <option>Class IX - A</option>
+    </select>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Day</th>
+          {% for period in periods %}
+          <th>{{ period|linebreaksbr }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in timetable %}
+        <tr>
+          <td class="fw-semibold text-start">{{ row.day }}</td>
+          {% for cell in row.periods %}
+          <td>
+            {% if cell.subject == "Break" %}
+              <span class="text-muted">Break</span>
+            {% else %}
+              <div class="fw-semibold">{{ cell.subject }}</div>
+              <div class="text-muted small">{{ cell.teacher }}</div>
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

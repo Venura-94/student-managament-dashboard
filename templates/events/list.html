@@ -1,0 +1,28 @@
+{% extends 'Home/base.html' %}
+{% block title %}Events{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Events" %}
+
+<div class="row g-4">
+  {% for ev in events %}
+  <div class="col-xl-4 col-md-6">
+    <div class="panel h-100">
+      <div class="d-flex align-items-start gap-3 mb-3">
+        <div class="lesson-date" style="width:64px;">
+          <div style="font-size:18px;">{{ ev.day }}</div>
+          <div>{{ ev.month }}</div>
+        </div>
+        <div>
+          <h3 class="panel-title mb-1">{{ ev.title }}</h3>
+          <p class="text-muted small mb-0"><i class="bi bi-clock me-1"></i>{{ ev.time }}</p>
+          <p class="text-muted small mb-0"><i class="bi bi-geo-alt me-1"></i>{{ ev.venue }}</p>
+        </div>
+      </div>
+      <p class="text-muted small mb-3">{{ ev.description }}</p>
+      <span class="status-badge {{ ev.status|lower }}">{{ ev.status }}</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'Home/base.html' %}
+{% block title %}Library{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Library" add_url=add_url add_label="Add Book" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Book Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Author</th>
+          <th>Subject</th>
+          <th>Quantity</th>
+          <th>Available</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for b in books %}
+        <tr>
+          <td>{{ b.id }}</td>
+          <td class="fw-semibold">{{ b.title }}</td>
+          <td>{{ b.author }}</td>
+          <td>{{ b.subject }}</td>
+          <td>{{ b.quantity }}</td>
+          <td>{{ b.available }}</td>
+          <td><span class="status-badge {{ b.status|lower }}">{{ b.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=8 total=120 %}
+</div>
+{% endblock %}

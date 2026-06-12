@@ -1,0 +1,13 @@
+{% extends 'Home/base.html' %}
+{% block title %}Blank Page{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Blank Page" %}
+
+<div class="panel d-flex align-items-center justify-content-center" style="min-height: 400px;">
+  <div class="text-center text-muted">
+    <i class="bi bi-file-earmark" style="font-size: 48px;"></i>
+    <p class="mt-3 mb-0">This is a blank page. Start building your content here.</p>
+  </div>
+</div>
+{% endblock %}

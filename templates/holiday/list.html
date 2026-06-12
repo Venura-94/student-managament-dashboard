@@ -1,0 +1,44 @@
+{% extends 'Home/base.html' %}
+{% block title %}Holiday{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Holiday" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Holiday Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Day</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for h in holidays %}
+        <tr>
+          <td>{{ h.id }}</td>
+          <td class="fw-semibold">{{ h.name }}</td>
+          <td>{{ h.date }}</td>
+          <td>{{ h.day }}</td>
+          <td class="text-muted">{{ h.description }}</td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=8 total=14 %}
+</div>
+{% endblock %}

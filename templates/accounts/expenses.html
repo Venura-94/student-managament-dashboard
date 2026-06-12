@@ -1,0 +1,46 @@
+{% extends 'Home/base.html' %}
+{% block title %}Expenses{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Expenses" add_url=add_url add_label="Add Expenses" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Item Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Item Quantity</th>
+          <th>Amount <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Purchase Source</th>
+          <th>Purchase Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in expenses %}
+        <tr>
+          <td>{{ e.id }}</td>
+          <td class="fw-semibold">{{ e.item_name }}</td>
+          <td>{{ e.item_quantity }}</td>
+          <td>{{ e.amount }}</td>
+          <td>{{ e.purchase_source }}</td>
+          <td>{{ e.purchase_date }}</td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=8 total=40 %}
+</div>
+{% endblock %}

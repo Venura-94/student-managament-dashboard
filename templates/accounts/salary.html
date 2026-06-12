@@ -1,0 +1,54 @@
+{% extends 'Home/base.html' %}
+{% block title %}Salary{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Salary" add_url=add_url add_label="Add Salary" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Designation</th>
+          <th>Gender <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Joining Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Salary Amount</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in salaries %}
+        <tr>
+          <td>{{ s.id }}</td>
+          <td>
+            <div class="row-person">
+              <span class="avatar-circle avatar-sm {{ s.avatar_class }}">{{ s.initials }}</span>
+              <div>{{ s.name }}</div>
+            </div>
+          </td>
+          <td>{{ s.designation }}</td>
+          <td>{{ s.gender }}</td>
+          <td>{{ s.joining_date }}</td>
+          <td>{{ s.amount }}</td>
+          <td><span class="status-badge {{ s.status|lower }}">{{ s.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="view"><i class="bi bi-eye"></i></a>
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=6 total=36 %}
+</div>
+{% endblock %}

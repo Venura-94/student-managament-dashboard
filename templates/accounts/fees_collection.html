@@ -1,0 +1,54 @@
+{% extends 'Home/base.html' %}
+{% block title %}Fees Collection{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Fees Collection" add_url=add_url add_label="Add Fees" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Student Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Class</th>
+          <th>Fees Type</th>
+          <th>Amount</th>
+          <th>Payment Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for f in fees %}
+        <tr>
+          <td>{{ f.id }}</td>
+          <td>
+            <div class="row-person">
+              <span class="avatar-circle avatar-sm {{ f.avatar_class }}">{{ f.initials }}</span>
+              <div>{{ f.student_name }}</div>
+            </div>
+          </td>
+          <td>{{ f.class_name }}</td>
+          <td>{{ f.fees_type }}</td>
+          <td>{{ f.amount }}</td>
+          <td>{{ f.payment_date }}</td>
+          <td><span class="status-badge {{ f.status|lower }}">{{ f.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="view"><i class="bi bi-eye"></i></a>
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=7 total=60 %}
+</div>
+{% endblock %}

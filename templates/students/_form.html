@@ -1,0 +1,156 @@
+<form method="post">
+  {% csrf_token %}
+
+  <div class="form-section-title">Profile Photo</div>
+  <div class="d-flex align-items-center gap-3 mb-2">
+    <div class="upload-photo">
+      <i class="bi bi-camera"></i>
+      <input type="file" name="photo">
+    </div>
+    <div class="text-muted small">Upload a profile photo (JPG or PNG, max 2MB)</div>
+  </div>
+
+  <div class="form-section-title">Student Information</div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" name="first_name" value="{{ student.first_name|default:'' }}" placeholder="Enter first name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-control" name="last_name" value="{{ student.last_name|default:'' }}" placeholder="Enter last name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" value="{{ student.email|default:'' }}" placeholder="Enter email address">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Phone Number</label>
+      <input type="text" class="form-control" name="phone" value="{{ student.phone|default:'' }}" placeholder="Enter phone number">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" name="dob" value="{{ student.dob|default:'' }}">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Gender</label>
+      <select class="form-select" name="gender">
+        <option {% if student.gender == 'Male' %}selected{% endif %}>Male</option>
+        <option {% if student.gender == 'Female' %}selected{% endif %}>Female</option>
+        <option {% if student.gender == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Blood Group</label>
+      <select class="form-select" name="blood_group">
+        <option {% if student.blood_group == "A+" %}selected{% endif %}>A+</option>
+        <option {% if student.blood_group == "A-" %}selected{% endif %}>A-</option>
+        <option {% if student.blood_group == "B+" %}selected{% endif %}>B+</option>
+        <option {% if student.blood_group == "B-" %}selected{% endif %}>B-</option>
+        <option {% if student.blood_group == "AB+" %}selected{% endif %}>AB+</option>
+        <option {% if student.blood_group == "AB-" %}selected{% endif %}>AB-</option>
+        <option {% if student.blood_group == "O+" %}selected{% endif %}>O+</option>
+        <option {% if student.blood_group == "O-" %}selected{% endif %}>O-</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Religion</label>
+      <input type="text" class="form-control" name="religion" value="{{ student.religion|default:'' }}" placeholder="Enter religion">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Category</label>
+      <input type="text" class="form-control" name="category" value="{{ student.category|default:'' }}" placeholder="Enter category">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Class</label>
+      <select class="form-select" name="class_name">
+        <option {% if student.class_name == "I" %}selected{% endif %}>I</option>
+        <option {% if student.class_name == "II" %}selected{% endif %}>II</option>
+        <option {% if student.class_name == "III" %}selected{% endif %}>III</option>
+        <option {% if student.class_name == "IV" %}selected{% endif %}>IV</option>
+        <option {% if student.class_name == "V" %}selected{% endif %}>V</option>
+        <option {% if student.class_name == "VI" %}selected{% endif %}>VI</option>
+        <option {% if student.class_name == "VII" %}selected{% endif %}>VII</option>
+        <option {% if student.class_name == "VIII" %}selected{% endif %}>VIII</option>
+        <option {% if student.class_name == "IX" %}selected{% endif %}>IX</option>
+        <option {% if student.class_name == "X" %}selected{% endif %}>X</option>
+        <option {% if student.class_name == "XI" %}selected{% endif %}>XI</option>
+        <option {% if student.class_name == "XII" %}selected{% endif %}>XII</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Section</label>
+      <select class="form-select" name="section">
+        <option {% if student.section == "A" %}selected{% endif %}>A</option>
+        <option {% if student.section == "B" %}selected{% endif %}>B</option>
+        <option {% if student.section == "C" %}selected{% endif %}>C</option>
+        <option {% if student.section == "D" %}selected{% endif %}>D</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Admission Date</label>
+      <input type="date" class="form-control" name="admission_date" value="{{ student.admission_date|default:'' }}">
+    </div>
+  </div>
+
+  <div class="form-section-title">Address Information</div>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Current Address</label>
+      <textarea class="form-control" name="current_address" rows="2" placeholder="Enter current address">{{ student.current_address|default:'' }}</textarea>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Permanent Address</label>
+      <textarea class="form-control" name="permanent_address" rows="2" placeholder="Enter permanent address">{{ student.permanent_address|default:'' }}</textarea>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">City</label>
+      <input type="text" class="form-control" name="city" value="{{ student.city|default:'' }}" placeholder="Enter city">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">State</label>
+      <input type="text" class="form-control" name="state" value="{{ student.state|default:'' }}" placeholder="Enter state">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Postal Code</label>
+      <input type="text" class="form-control" name="postal_code" value="{{ student.postal_code|default:'' }}" placeholder="Enter postal code">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Country</label>
+      <input type="text" class="form-control" name="country" value="{{ student.country|default:'' }}" placeholder="Enter country">
+    </div>
+  </div>
+
+  <div class="form-section-title">Guardian Details</div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">Father Name</label>
+      <input type="text" class="form-control" name="father_name" value="{{ student.father_name|default:'' }}" placeholder="Enter father name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Mother Name</label>
+      <input type="text" class="form-control" name="mother_name" value="{{ student.mother_name|default:'' }}" placeholder="Enter mother name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Guardian Relation</label>
+      <input type="text" class="form-control" name="guardian_relation" value="{{ student.guardian_relation|default:'' }}" placeholder="Enter relation">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Guardian Phone</label>
+      <input type="text" class="form-control" name="guardian_phone" value="{{ student.guardian_phone|default:'' }}" placeholder="Enter guardian phone">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Guardian Email</label>
+      <input type="email" class="form-control" name="guardian_email" value="{{ student.guardian_email|default:'' }}" placeholder="Enter guardian email">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Guardian Occupation</label>
+      <input type="text" class="form-control" name="guardian_occupation" value="{{ student.guardian_occupation|default:'' }}" placeholder="Enter occupation">
+    </div>
+  </div>
+
+  <div class="d-flex gap-3 mt-4">
+    <button type="submit" class="btn-primary-custom">{{ submit_label|default:"Save" }}</button>
+    <a href="{% url 'student_list' %}" class="btn-outline-custom">Cancel</a>
+  </div>
+</form>

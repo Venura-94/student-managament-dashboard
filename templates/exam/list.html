@@ -1,0 +1,49 @@
+{% extends 'Home/base.html' %}
+{% block title %}Exam List{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Exam List" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Exam Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Class</th>
+          <th>Subject</th>
+          <th>Exam Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for e in exams %}
+        <tr>
+          <td>{{ e.id }}</td>
+          <td class="fw-semibold">{{ e.name }}</td>
+          <td>{{ e.class_name }}</td>
+          <td>{{ e.subject }}</td>
+          <td>{{ e.date }}</td>
+          <td>{{ e.time }}</td>
+          <td><span class="status-badge {{ e.status|lower }}">{{ e.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="view"><i class="bi bi-eye"></i></a>
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=7 total=20 %}
+</div>
+{% endblock %}

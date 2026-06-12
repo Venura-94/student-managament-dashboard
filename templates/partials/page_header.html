@@ -1,0 +1,11 @@
+<div class="page-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+  <div>
+    <h2>{{ page_title }}</h2>
+    <div class="breadcrumb-text">
+      <a href="{% url 'dashboard_admin' %}">Dashboard</a> / <span class="current">{{ page_title }}</span>
+    </div>
+  </div>
+  {% if add_url %}
+  <a href="{{ add_url }}" class="btn-add-new"><i class="bi bi-plus-lg"></i> {{ add_label }}</a>
+  {% endif %}
+</div>

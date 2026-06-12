@@ -1,0 +1,44 @@
+{% extends 'Home/base.html' %}
+{% block title %}Subjects{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Subjects" add_url=add_url add_label="Add Subject" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Subject Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Subject Code</th>
+          <th>Type</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in subjects %}
+        <tr>
+          <td>{{ s.id }}</td>
+          <td class="fw-semibold">{{ s.name }}</td>
+          <td>{{ s.code }}</td>
+          <td>{{ s.type }}</td>
+          <td>{{ s.department }}</td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=6 total=24 %}
+</div>
+{% endblock %}

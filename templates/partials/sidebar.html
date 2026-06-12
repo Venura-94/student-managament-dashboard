@@ -1,0 +1,112 @@
+{% load static %}
+{% with current=request.resolver_match.url_name %}
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon"><i class="bi bi-mortarboard-fill"></i></div>
+    <div class="logo-text">Pre<span>Skool</span></div>
+  </div>
+
+  <ul class="sidebar-menu">
+    <li class="menu-label">Main Menu</li>
+
+    <li class="has-submenu {% if current in 'dashboard_admin,dashboard_teacher,dashboard_student' %}open{% endif %}">
+      <a href="#"><i class="bi bi-grid-1x2-fill"></i> Dashboard <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'dashboard_admin' %}" class="{% if current == 'dashboard_admin' %}active{% endif %}">Admin Dashboard</a></li>
+        <li><a href="{% url 'dashboard_teacher' %}" class="{% if current == 'dashboard_teacher' %}active{% endif %}">Teacher Dashboard</a></li>
+        <li><a href="{% url 'dashboard_student' %}" class="{% if current == 'dashboard_student' %}active{% endif %}">Student Dashboard</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu {% if current in 'student_list,student_view,student_add,student_edit' %}open{% endif %}">
+      <a href="#"><i class="bi bi-mortarboard"></i> Students <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'student_list' %}" class="{% if current == 'student_list' %}active{% endif %}">Student List</a></li>
+        <li><a href="{% url 'student_view' %}" class="{% if current == 'student_view' %}active{% endif %}">Student View</a></li>
+        <li><a href="{% url 'student_add' %}" class="{% if current == 'student_add' %}active{% endif %}">Student Add</a></li>
+        <li><a href="{% url 'student_edit' %}" class="{% if current == 'student_edit' %}active{% endif %}">Student Edit</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu {% if current in 'teacher_list,teacher_view,teacher_add,teacher_edit' %}open{% endif %}">
+      <a href="#"><i class="bi bi-person-workspace"></i> Teachers <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'teacher_list' %}" class="{% if current == 'teacher_list' %}active{% endif %}">Teacher List</a></li>
+        <li><a href="{% url 'teacher_view' %}" class="{% if current == 'teacher_view' %}active{% endif %}">Teacher View</a></li>
+        <li><a href="{% url 'teacher_add' %}" class="{% if current == 'teacher_add' %}active{% endif %}">Teacher Add</a></li>
+        <li><a href="{% url 'teacher_edit' %}" class="{% if current == 'teacher_edit' %}active{% endif %}">Teacher Edit</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu {% if current in 'department_list,department_add' %}open{% endif %}">
+      <a href="#"><i class="bi bi-building"></i> Departments <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'department_list' %}" class="{% if current == 'department_list' %}active{% endif %}">Departments List</a></li>
+        <li><a href="{% url 'department_add' %}" class="{% if current == 'department_add' %}active{% endif %}">Add Department</a></li>
+      </ul>
+    </li>
+
+    <li class="has-submenu {% if current in 'subject_list,subject_add' %}open{% endif %}">
+      <a href="#"><i class="bi bi-journal-bookmark"></i> Subjects <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'subject_list' %}" class="{% if current == 'subject_list' %}active{% endif %}">Subjects List</a></li>
+        <li><a href="{% url 'subject_add' %}" class="{% if current == 'subject_add' %}active{% endif %}">Add Subject</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-label">Management</li>
+
+    <li class="has-submenu {% if current == 'fees_collection' or current == 'expenses' or current == 'salary' or current == 'add_fees' or current == 'add_expenses' or current == 'add_salary' %}open{% endif %}">
+      <a href="#"><i class="bi bi-wallet2"></i> Accounts <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'fees_collection' %}" class="{% if current == 'fees_collection' %}active{% endif %}">Fees Collection</a></li>
+        <li><a href="{% url 'expenses' %}" class="{% if current == 'expenses' %}active{% endif %}">Expenses</a></li>
+        <li><a href="{% url 'salary' %}" class="{% if current == 'salary' %}active{% endif %}">Salary</a></li>
+        <li><a href="{% url 'add_fees' %}" class="{% if current == 'add_fees' %}active{% endif %}">Add Fees</a></li>
+        <li><a href="{% url 'add_expenses' %}" class="{% if current == 'add_expenses' %}active{% endif %}">Add Expenses</a></li>
+        <li><a href="{% url 'add_salary' %}" class="{% if current == 'add_salary' %}active{% endif %}">Add Salary</a></li>
+      </ul>
+    </li>
+
+    <li class="{% if current == 'holiday' %}active{% endif %}">
+      <a href="{% url 'holiday' %}" class="{% if current == 'holiday' %}active{% endif %}"><i class="bi bi-airplane"></i> Holiday</a>
+    </li>
+    <li class="{% if current == 'fees' %}active{% endif %}">
+      <a href="{% url 'fees' %}" class="{% if current == 'fees' %}active{% endif %}"><i class="bi bi-cash-coin"></i> Fees</a>
+    </li>
+    <li class="{% if current == 'exam_list' %}active{% endif %}">
+      <a href="{% url 'exam_list' %}" class="{% if current == 'exam_list' %}active{% endif %}"><i class="bi bi-file-earmark-text"></i> Exam list</a>
+    </li>
+    <li class="{% if current == 'events' %}active{% endif %}">
+      <a href="{% url 'events' %}" class="{% if current == 'events' %}active{% endif %}"><i class="bi bi-calendar2-week"></i> Events</a>
+    </li>
+    <li class="{% if current == 'timetable' %}active{% endif %}">
+      <a href="{% url 'timetable' %}" class="{% if current == 'timetable' %}active{% endif %}"><i class="bi bi-table"></i> Time Table</a>
+    </li>
+    <li class="{% if current == 'library' %}active{% endif %}">
+      <a href="{% url 'library' %}" class="{% if current == 'library' %}active{% endif %}"><i class="bi bi-journal-bookmark-fill"></i> Library</a>
+    </li>
+
+    <li class="menu-label">Pages</li>
+
+    <li class="has-submenu {% if current in 'login,register,forgot_password' %}open{% endif %}">
+      <a href="#"><i class="bi bi-shield-lock"></i> Authentication <i class="bi bi-chevron-right menu-arrow"></i></a>
+      <ul class="submenu">
+        <li><a href="{% url 'login' %}" class="{% if current == 'login' %}active{% endif %}">Login</a></li>
+        <li><a href="{% url 'register' %}" class="{% if current == 'register' %}active{% endif %}">Register</a></li>
+        <li><a href="{% url 'forgot_password' %}" class="{% if current == 'forgot_password' %}active{% endif %}">Forgot Password</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="{% url 'blank_page' %}" class="{% if current == 'blank_page' %}active{% endif %}"><i class="bi bi-file-earmark"></i> Blank Page</a>
+    </li>
+
+    <li class="menu-label">Others</li>
+
+    <li>
+      <a href="{% url 'sports' %}" class="{% if current == 'sports' %}active{% endif %}"><i class="bi bi-trophy"></i> Sports</a>
+    </li>
+  </ul>
+</aside>
+{% endwith %}

@@ -1,0 +1,36 @@
+<header class="topbar">
+  <div class="d-flex align-items-center gap-3">
+    <button class="menu-toggle"><i class="bi bi-list"></i></button>
+    <div class="search-box">
+      <i class="bi bi-search"></i>
+      <input type="text" placeholder="Search here">
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <button class="topbar-icon-btn">
+      <i class="bi bi-envelope"></i>
+      <span class="badge-dot"></span>
+    </button>
+    <button class="topbar-icon-btn">
+      <i class="bi bi-bell"></i>
+      <span class="badge-dot"></span>
+    </button>
+
+    <div class="dropdown">
+      <a href="#" class="topbar-profile dropdown-toggle" data-bs-toggle="dropdown">
+        <span class="avatar-circle avatar-primary avatar-sm">A</span>
+        <span class="profile-meta">
+          <span class="name d-block">Admin</span>
+          <span class="role">Administrator</span>
+        </span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>My Profile</a></li>
+        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="{% url 'login' %}"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,117 @@
+<form method="post">
+  {% csrf_token %}
+
+  <div class="form-section-title">Profile Photo</div>
+  <div class="d-flex align-items-center gap-3 mb-2">
+    <div class="upload-photo">
+      <i class="bi bi-camera"></i>
+      <input type="file" name="photo">
+    </div>
+    <div class="text-muted small">Upload a profile photo (JPG or PNG, max 2MB)</div>
+  </div>
+
+  <div class="form-section-title">Teacher Information</div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">First Name</label>
+      <input type="text" class="form-control" name="first_name" value="{{ teacher.first_name|default:'' }}" placeholder="Enter first name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Last Name</label>
+      <input type="text" class="form-control" name="last_name" value="{{ teacher.last_name|default:'' }}" placeholder="Enter last name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" value="{{ teacher.email|default:'' }}" placeholder="Enter email address">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Phone Number</label>
+      <input type="text" class="form-control" name="phone" value="{{ teacher.phone|default:'' }}" placeholder="Enter phone number">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Date of Birth</label>
+      <input type="date" class="form-control" name="dob" value="{{ teacher.dob|default:'' }}">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Gender</label>
+      <select class="form-select" name="gender">
+        <option {% if teacher.gender == 'Male' %}selected{% endif %}>Male</option>
+        <option {% if teacher.gender == 'Female' %}selected{% endif %}>Female</option>
+        <option {% if teacher.gender == 'Other' %}selected{% endif %}>Other</option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Department</label>
+      <input type="text" class="form-control" name="department" value="{{ teacher.department|default:'' }}" placeholder="Enter department">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Subject</label>
+      <input type="text" class="form-control" name="subject" value="{{ teacher.subject|default:'' }}" placeholder="Enter subject">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Designation</label>
+      <input type="text" class="form-control" name="designation" value="{{ teacher.designation|default:'' }}" placeholder="Enter designation">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Joining Date</label>
+      <input type="date" class="form-control" name="joining_date" value="{{ teacher.joining_date|default:'' }}">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Qualification</label>
+      <input type="text" class="form-control" name="qualification" value="{{ teacher.qualification|default:'' }}" placeholder="Enter qualification">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Experience (Years)</label>
+      <input type="number" class="form-control" name="experience" value="{{ teacher.experience|default:'' }}" placeholder="Enter years of experience">
+    </div>
+  </div>
+
+  <div class="form-section-title">Address Information</div>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Current Address</label>
+      <textarea class="form-control" name="current_address" rows="2" placeholder="Enter current address">{{ teacher.current_address|default:'' }}</textarea>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Permanent Address</label>
+      <textarea class="form-control" name="permanent_address" rows="2" placeholder="Enter permanent address">{{ teacher.permanent_address|default:'' }}</textarea>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">City</label>
+      <input type="text" class="form-control" name="city" value="{{ teacher.city|default:'' }}" placeholder="Enter city">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">State</label>
+      <input type="text" class="form-control" name="state" value="{{ teacher.state|default:'' }}" placeholder="Enter state">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Postal Code</label>
+      <input type="text" class="form-control" name="postal_code" value="{{ teacher.postal_code|default:'' }}" placeholder="Enter postal code">
+    </div>
+    <div class="col-md-3">
+      <label class="form-label">Country</label>
+      <input type="text" class="form-control" name="country" value="{{ teacher.country|default:'' }}" placeholder="Enter country">
+    </div>
+  </div>
+
+  <div class="form-section-title">Salary Information</div>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label class="form-label">Basic Salary</label>
+      <input type="number" class="form-control" name="basic_salary" value="{{ teacher.basic_salary|default:'' }}" placeholder="Enter basic salary">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Bank Name</label>
+      <input type="text" class="form-control" name="bank_name" value="{{ teacher.bank_name|default:'' }}" placeholder="Enter bank name">
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Account Number</label>
+      <input type="text" class="form-control" name="account_number" value="{{ teacher.account_number|default:'' }}" placeholder="Enter account number">
+    </div>
+  </div>
+
+  <div class="d-flex gap-3 mt-4">
+    <button type="submit" class="btn-primary-custom">{{ submit_label|default:"Save" }}</button>
+    <a href="{% url 'teacher_list' %}" class="btn-outline-custom">Cancel</a>
+  </div>
+</form>

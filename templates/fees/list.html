@@ -1,0 +1,46 @@
+{% extends 'Home/base.html' %}
+{% block title %}Fees{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Fees" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Class <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Fees Type</th>
+          <th>Amount</th>
+          <th>Due Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for f in fees_structure %}
+        <tr>
+          <td>{{ f.id }}</td>
+          <td class="fw-semibold">{{ f.class_name }}</td>
+          <td>{{ f.fees_type }}</td>
+          <td>{{ f.amount }}</td>
+          <td>{{ f.due_date }}</td>
+          <td><span class="status-badge {{ f.status|lower }}">{{ f.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="#" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=8 total=24 %}
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'Home/base.html' %}
+{% block title %}Teacher List{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Teacher List" add_url=add_url add_label="Add Teacher" %}
+
+<div class="panel">
+  {% include 'partials/table_toolbar.html' %}
+
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Staff ID <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Name <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Department</th>
+          <th>Subject</th>
+          <th>Gender <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Joining Date <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
+          <th>Mobile</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for t in teachers %}
+        <tr>
+          <td>{{ t.id }}</td>
+          <td>
+            <div class="row-person">
+              <span class="avatar-circle avatar-sm {{ t.avatar_class }}">{{ t.initials }}</span>
+              <div>
+                <div>{{ t.name }}</div>
+                <div class="text-muted small">{{ t.email }}</div>
+              </div>
+            </div>
+          </td>
+          <td>{{ t.department }}</td>
+          <td>{{ t.subject }}</td>
+          <td>{{ t.gender }}</td>
+          <td>{{ t.joining_date }}</td>
+          <td>{{ t.mobile }}</td>
+          <td><span class="status-badge {{ t.status|lower }}">{{ t.status }}</span></td>
+          <td>
+            <div class="action-icons">
+              <a href="{% url 'teacher_view' %}" class="view"><i class="bi bi-eye"></i></a>
+              <a href="{% url 'teacher_edit' %}" class="edit"><i class="bi bi-pencil"></i></a>
+              <a href="#" class="delete"><i class="bi bi-trash"></i></a>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include 'partials/table_pagination.html' with count=8 total=48 %}
+</div>
+{% endblock %}

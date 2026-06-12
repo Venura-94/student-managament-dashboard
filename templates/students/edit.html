@@ -1,0 +1,10 @@
+{% extends 'Home/base.html' %}
+{% block title %}Edit Student{% endblock %}
+
+{% block content %}
+{% include 'partials/page_header.html' with page_title="Student Edit" %}
+
+<div class="panel">
+  {% include 'students/_form.html' with submit_label="Update" %}
+</div>
+{% endblock %}

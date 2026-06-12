@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./env/Scripts/python.exe manage.py check)",
+      "Bash(curl -s \"http://127.0.0.1:8000/accounts/salary/\" -o /tmp/salary.html)",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"http://127.0.0.1:8000/students/add/\" -o /tmp/sadd.html)",
+      "Bash(curl -s \"http://127.0.0.1:8000/timetable/\" -o /tmp/tt.html)",
+      "Bash(xargs sed -i \"s/Home\\\\///g\")",
+      "Bash(cd \"c:\\\\Users\\\\venur\\\\Desktop\\\\python\\\\personal\\\\studentdashboard\" && sed -i 's/\"Home\\\\//\"/g' school/views.py && grep -n \"Home/\" school/views.py)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\venur\\Desktop\\python\\personal\\studentdashboard\\school"
+    ]
+  }
+}

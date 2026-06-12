@@ -1,0 +1,101 @@
+Watching for file changes with StatReloader
+[12/Jun/2026 08:56:22] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 08:56:22] "GET /teacher-dashboard/ HTTP/1.1" 200 14025
+[12/Jun/2026 08:56:22] "GET /student-dashboard/ HTTP/1.1" 200 14671
+[12/Jun/2026 08:56:22] "GET /students/ HTTP/1.1" 200 15679
+[12/Jun/2026 08:56:22] "GET /students/view/ HTTP/1.1" 200 11209
+[12/Jun/2026 08:56:22] "GET /students/add/ HTTP/1.1" 200 13021
+[12/Jun/2026 08:56:22] "GET /students/edit/ HTTP/1.1" 200 13331
+[12/Jun/2026 08:56:22] "GET /teachers/ HTTP/1.1" 200 14137
+[12/Jun/2026 08:56:22] "GET /teachers/view/ HTTP/1.1" 200 11237
+[12/Jun/2026 08:56:22] "GET /teachers/add/ HTTP/1.1" 200 11848
+[12/Jun/2026 08:56:22] "GET /teachers/edit/ HTTP/1.1" 200 12142
+[12/Jun/2026 08:56:22] "GET /departments/ HTTP/1.1" 200 11439
+[12/Jun/2026 08:56:22] "GET /departments/add/ HTTP/1.1" 200 8253
+[12/Jun/2026 08:56:22] "GET /subjects/ HTTP/1.1" 200 10829
+[12/Jun/2026 08:56:22] "GET /subjects/add/ HTTP/1.1" 200 8005
+[12/Jun/2026 08:56:22] "GET /accounts/fees-collection/ HTTP/1.1" 200 12889
+[12/Jun/2026 08:56:23] "GET /accounts/expenses/ HTTP/1.1" 200 12102
+[12/Jun/2026 08:56:23] "GET /accounts/salary/ HTTP/1.1" 200 12965
+[12/Jun/2026 08:56:23] "GET /accounts/add-fees/ HTTP/1.1" 200 9299
+[12/Jun/2026 08:56:23] "GET /accounts/add-expenses/ HTTP/1.1" 200 8426
+[12/Jun/2026 08:56:23] "GET /accounts/add-salary/ HTTP/1.1" 200 9087
+[12/Jun/2026 08:56:23] "GET /holiday/ HTTP/1.1" 200 12073
+[12/Jun/2026 08:56:23] "GET /fees/ HTTP/1.1" 200 12332
+[12/Jun/2026 08:56:23] "GET /exam-list/ HTTP/1.1" 200 12679
+[12/Jun/2026 08:56:23] "GET /events/ HTTP/1.1" 200 11260
+[12/Jun/2026 08:56:23] "GET /timetable/ HTTP/1.1" 200 15637
+[12/Jun/2026 08:56:23] "GET /library/ HTTP/1.1" 200 11481
+[12/Jun/2026 08:56:23] "GET /auth/login/ HTTP/1.1" 200 1987
+[12/Jun/2026 08:56:23] "GET /auth/register/ HTTP/1.1" 200 2238
+[12/Jun/2026 08:56:23] "GET /auth/forgot-password/ HTTP/1.1" 200 1537
+[12/Jun/2026 08:56:23] "GET /blank-page/ HTTP/1.1" 200 7091
+[12/Jun/2026 08:56:23] "GET /sports/ HTTP/1.1" 200 8577
+[12/Jun/2026 08:56:30] "GET /static/css/style.css HTTP/1.1" 200 19801
+[12/Jun/2026 08:56:30] "GET /static/js/script.js HTTP/1.1" 200 860
+[12/Jun/2026 09:01:58] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 09:02:52] "GET /accounts/salary/ HTTP/1.1" 200 12965
+[12/Jun/2026 09:02:52] "GET /students/add/ HTTP/1.1" 200 13021
+[12/Jun/2026 09:02:52] "GET /timetable/ HTTP/1.1" 200 15637
+C:\Users\venur\Desktop\python\personal\studentdashboard\school\views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+June 12, 2026 - 08:56:20
+Django version 6.0.6, using settings 'home.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.0/howto/deployment/
+Watching for file changes with StatReloader
+[12/Jun/2026 09:18:26] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 09:18:26] "GET /students/ HTTP/1.1" 200 15679
+[12/Jun/2026 09:18:26] "GET /accounts/salary/ HTTP/1.1" 200 12965
+[12/Jun/2026 09:18:26] "GET /timetable/ HTTP/1.1" 200 15637
+Not Found: /login/
+[12/Jun/2026 09:18:26] "GET /login/ HTTP/1.1" 404 10692
+[12/Jun/2026 09:18:36] "GET /auth/login/ HTTP/1.1" 200 1987
+Not Found: /blank/
+[12/Jun/2026 09:18:36] "GET /blank/ HTTP/1.1" 404 10692
+Not Found: /dashboard/admin/
+[12/Jun/2026 09:18:36] "GET /dashboard/admin/ HTTP/1.1" 404 10722
+C:\Users\venur\Desktop\python\personal\studentdashboard\school\views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+June 12, 2026 - 09:18:10
+Django version 6.0.6, using settings 'home.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.0/howto/deployment/
+Watching for file changes with StatReloader
+[12/Jun/2026 09:23:08] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 09:23:08] "GET /students/ HTTP/1.1" 200 15679
+[12/Jun/2026 09:23:08] "GET /blank-page/ HTTP/1.1" 200 7091
+[12/Jun/2026 09:23:08] "GET /timetable/ HTTP/1.1" 200 15637
+[12/Jun/2026 09:53:03] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 09:53:03] "GET /static/css/style.css HTTP/1.1" 200 19801
+[12/Jun/2026 09:53:03] "GET /static/js/script.js HTTP/1.1" 200 860
+[12/Jun/2026 09:53:15] "GET / HTTP/1.1" 200 10064
+[12/Jun/2026 09:53:16] "GET /static/css/style.css HTTP/1.1" 200 19801
+[12/Jun/2026 09:53:16] "GET /static/js/script.js HTTP/1.1" 200 860
+Not Found: /favicon.ico
+[12/Jun/2026 09:53:16] "GET /favicon.ico HTTP/1.1" 404 10707
+[12/Jun/2026 09:53:46] "GET /auth/login/ HTTP/1.1" 200 1987
+Not Found: /.well-known/appspecific/com.chrome.devtools.json
+[12/Jun/2026 09:54:39] "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 10818
+[12/Jun/2026 10:02:43] "GET /exam-list/ HTTP/1.1" 200 12679
+[12/Jun/2026 10:02:43] "GET /static/css/style.css HTTP/1.1" 304 0
+[12/Jun/2026 10:02:43] "GET /static/js/script.js HTTP/1.1" 304 0
+[12/Jun/2026 10:03:07] "GET /timetable/ HTTP/1.1" 200 15637
+[12/Jun/2026 10:03:11] "GET /events/ HTTP/1.1" 200 11260
+[12/Jun/2026 10:03:16] "GET /library/ HTTP/1.1" 200 11481
