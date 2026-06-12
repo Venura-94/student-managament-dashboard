@@ -18,12 +18,12 @@
       </ul>
     </li>
 
-    <li class="has-submenu {% if current in 'student_list,student_view,student_add,student_edit' %}open{% endif %}">
+    <li class="has-submenu {% if current in 'student_list,student_view,add_student,student_edit' %}open{% endif %}">
       <a href="#"><i class="bi bi-mortarboard"></i> Students <i class="bi bi-chevron-right menu-arrow"></i></a>
       <ul class="submenu">
         <li><a href="{% url 'student_list' %}" class="{% if current == 'student_list' %}active{% endif %}">Student List</a></li>
         <li><a href="{% url 'student_view' %}" class="{% if current == 'student_view' %}active{% endif %}">Student View</a></li>
-        <li><a href="{% url 'student_add' %}" class="{% if current == 'student_add' %}active{% endif %}">Student Add</a></li>
+        <li><a href="{% url 'add_student' %}" class="{% if current == 'add_student' %}active{% endif %}">Student Add</a></li>
         <li><a href="{% url 'student_edit' %}" class="{% if current == 'student_edit' %}active{% endif %}">Student Edit</a></li>
       </ul>
     </li>

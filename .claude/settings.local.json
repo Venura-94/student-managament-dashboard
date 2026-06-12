@@ -7,7 +7,8 @@
       "Bash(curl -s \"http://127.0.0.1:8000/students/add/\" -o /tmp/sadd.html)",
       "Bash(curl -s \"http://127.0.0.1:8000/timetable/\" -o /tmp/tt.html)",
       "Bash(xargs sed -i \"s/Home\\\\///g\")",
-      "Bash(cd \"c:\\\\Users\\\\venur\\\\Desktop\\\\python\\\\personal\\\\studentdashboard\" && sed -i 's/\"Home\\\\//\"/g' school/views.py && grep -n \"Home/\" school/views.py)"
+      "Bash(cd \"c:\\\\Users\\\\venur\\\\Desktop\\\\python\\\\personal\\\\studentdashboard\" && sed -i 's/\"Home\\\\//\"/g' school/views.py && grep -n \"Home/\" school/views.py)",
+      "Bash(curl -s -c /tmp/cookies.txt http://127.0.0.1:8000/student/add/ -o /tmp/add_page.html)"
     ],
     "additionalDirectories": [
       "c:\\Users\\venur\\Desktop\\python\\personal\\studentdashboard\\school"

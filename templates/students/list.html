@@ -17,28 +17,30 @@
           <th>Gender <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
           <th>Date of Admission <span class="sort-icons"><i class="bi bi-caret-up-fill"></i><i class="bi bi-caret-down-fill"></i></span></th>
           <th>Mobile</th>
-          <th>Status</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
         {% for s in students %}
         <tr>
-          <td>{{ s.id }}</td>
+          <td>{{ s.addmission_number }}</td>
           <td>
             <div class="row-person">
-              <span class="avatar-circle avatar-sm {{ s.avatar_class }}">{{ s.initials }}</span>
+              {% if s.student_image %}
+              <img src="{{ s.student_image.url }}" class="avatar-circle avatar-sm avatar-img" alt="">
+              {% else %}
+              <span class="avatar-circle avatar-sm">{{ s.first_name|slice:":1" }}{{ s.last_name|slice:":1" }}</span>
+              {% endif %}
               <div>
-                <div>{{ s.name }}</div>
-                <div class="text-muted small">{{ s.email }}</div>
+                <div>{{ s.first_name }} {{ s.last_name }}</div>
+                <div class="text-muted small">{{ s.student_id }}</div>
               </div>
             </div>
           </td>
-          <td>{{ s.class_name }}</td>
+          <td>{{ s.student_class }}</td>
           <td>{{ s.gender }}</td>
-          <td>{{ s.admission_date }}</td>
-          <td>{{ s.mobile }}</td>
-          <td><span class="status-badge {{ s.status|lower }}">{{ s.status }}</span></td>
+          <td>{{ s.joining_date }}</td>
+          <td>{{ s.mobile_number }}</td>
           <td>
             <div class="action-icons">
               <a href="{% url 'student_view' %}" class="view"><i class="bi bi-eye"></i></a>

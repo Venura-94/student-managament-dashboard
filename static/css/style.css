@@ -357,6 +357,10 @@ a {
   background: var(--color-primary);
 }
 
+.avatar-circle.avatar-img {
+  object-fit: cover;
+}
+
 .avatar-sm {
   width: 36px;
   height: 36px;
